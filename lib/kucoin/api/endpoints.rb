@@ -9,7 +9,7 @@ module Kucoin
       user:  {
         accounts: {
           index:            '/api/v1/accounts',
-          inner_transfer:   '/api/v1/accounts/inner-transfer',
+          inner_transfer:   '/api/v2/accounts/inner-transfer',
           # member
           show:             '/api/v1/accounts/:account_id',
           ledgers:          '/api/v1/accounts/:account_id/ledgers',
