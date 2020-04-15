@@ -16,15 +16,12 @@ module Kucoin
           alias all index
           alias list index
 
-        # v1 of the api
-        #  def inner_transfer client_oid, pay_account_id, rec_account_id, amount
-        #    auth.ku_request :post, :inner_transfer, clientOid: client_oid, payAccountId: pay_account_id, recAccountId: rec_account_id, amount: amount
-        #  end
-
-          def inner_transfer client_oid, currency, from, to, amount
+          def inner_transfer currency, from, to, amount
+            require "securerandom"
+            client_oid = SecureRandom.uuid
             auth.ku_request :post, :inner_transfer, clientOid: client_oid, currency: currency, from: from, to: to, amount: amount
           end
-          
+
           def show account_id
             auth.ku_request :get, :show, account_id: account_id
           end
